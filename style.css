@@ -1,0 +1,334 @@
+@charset "utf-8";
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: "Yusei Magic", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ======================================== */
+/* header */
+/* ======================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    /* 白の半透明背景 */
+    display: flex;
+    align-items: center;
+    /* 縦方向中央揃え */
+    justify-content: center;
+    /* 横方向中央揃え */
+    padding: 0;
+    /* 余白をリセット */
+    margin: 0;
+    /* マージンをリセット */
+}
+
+/* logo */
+
+.logo {
+    top: 0;
+    padding: 12px 0;
+    width: 100%;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    /* スクロール時も固定 */
+    display: flex;
+    justify-content: center;
+    /* 横方向中央揃え */
+    align-items: center;
+    /* 縦方向中央揃え */
+}
+
+.logo img {
+    height: 50px;
+    /* ロゴ画像の高さ */
+    width: auto;
+    /* アスペクト比を保持 */
+    display: block;
+    /* インライン要素の影響を除去 */
+}
+
+/* ======================================== */
+/* content */
+/* ======================================== */
+
+/* 全体リセット */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Hero */
+/* ======================================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+#main_canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* スクロールマーク */
+
+.wrapper {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.wrapper.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.scroll-down-box {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.scroll-down-box svg {
+    fill: #ffffff;
+}
+
+.scroll-down-box .scroll-text {
+    width: 100px;
+    height: auto;
+    display: inline-block;
+    animation: rotation 10s infinite linear;
+}
+
+.scroll-down-box .scroll-icon {
+    width: 25px;
+    height: auto;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in;
+}
+
+.scroll-down-box:hover .scroll-icon {
+    animation: move 1s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes move {
+    0% {
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    25% {
+        -ms-transform: translate(-50%, -35%);
+        -webkit-transform: translate(-50%, -35%);
+        transform: translate(-50%, -35%);
+    }
+
+    50% {
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    75% {
+        -ms-transform: translate(-50%, -65%);
+        -webkit-transform: translate(-50%, -65%);
+        transform: translate(-50%, -65%);
+    }
+
+    100% {
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@-webkit-keyframes move {
+    0% {
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    25% {
+        -ms-transform: translate(-50%, -40%);
+        -webkit-transform: translate(-50%, -40%);
+        transform: translate(-50%, -40%);
+    }
+
+    50% {
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    75% {
+        -ms-transform: translate(-50%, -60%);
+        -webkit-transform: translate(-50%, -60%);
+        transform: translate(-50%, -60%);
+    }
+
+    100% {
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* 通常コンテンツ */
+.content {
+    position: relative;
+    background: #f9f9f9;
+}
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border-bottom: 1px solid #ccc;
+    background: linear-gradient(to bottom, #ffffff, #e3e3e3);
+}
+
+/* About */
+/* ======================================== */
+
+.about-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+    background: #f9f9f9;
+    color: #1E3A8A;
+    overflow: hidden;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    gap: 30px;
+}
+
+.about-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.about-button .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #2563EB;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.about-button .btn-primary:hover {
+    background: #1D4ED8;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    animation: fadeInRight 1.5s ease-in-out;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
